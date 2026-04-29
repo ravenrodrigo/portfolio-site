@@ -40,14 +40,16 @@ public class ProjectEntity {
     public ProjectEntity() {}
 
     public ProjectEntity(String projectName, String projectDescription) {
+        this.projectName = projectName;
+        this.projectDescription = projectDescription;
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public String getProjectName() {
-        return this.projectName;
+        return projectName;
     }
 
     public String getProjectDescription() {

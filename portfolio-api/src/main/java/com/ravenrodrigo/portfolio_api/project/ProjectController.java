@@ -31,14 +31,14 @@ import java.util.List;
 public class ProjectController {
 
     @Autowired
-    private final ProjectServiceImpl projectServiceImpl;
+    private final ProjectService projectService;
 
-    public ProjectController(ProjectServiceImpl projectServiceImpl) {
-        this.projectServiceImpl = projectServiceImpl;
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
     }
 
     @GetMapping("/")
     public List<Project> displayAllProjects() {
-        return projectServiceImpl.getAllProjects();
+        return projectService.getAllProjects();
     }
 }

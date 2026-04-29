@@ -17,6 +17,7 @@ package com.ravenrodrigo.portfolio_api.service;
 
 import com.ravenrodrigo.portfolio_api.project.Project;
 import com.ravenrodrigo.portfolio_api.project.ProjectController;
+import com.ravenrodrigo.portfolio_api.project.ProjectService;
 import com.ravenrodrigo.portfolio_api.project.ProjectServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,7 +43,7 @@ public class ProjectControllerUnitTest {
     MockMvc mockMvc;
 
     @MockitoBean
-    ProjectServiceImpl projectServiceImplMock;
+    ProjectService projectServiceMock;
 
     @Test
     @DisplayName("It should get all projects then return status 200.")
@@ -54,7 +55,7 @@ public class ProjectControllerUnitTest {
         List<Project> projects = List.of(firstProject, secondProject, thirdProject);
 
         // When
-        when(projectServiceImplMock.getAllProjects()).thenReturn(projects);
+        when(projectServiceMock.getAllProjects()).thenReturn(projects);
 
         // Then
         mockMvc.perform(get("/api/"))
