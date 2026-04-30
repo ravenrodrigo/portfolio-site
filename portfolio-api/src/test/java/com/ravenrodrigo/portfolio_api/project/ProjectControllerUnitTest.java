@@ -13,12 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ravenrodrigo.portfolio_api.service;
+package com.ravenrodrigo.portfolio_api.project;
 
-import com.ravenrodrigo.portfolio_api.project.Project;
-import com.ravenrodrigo.portfolio_api.project.ProjectController;
-import com.ravenrodrigo.portfolio_api.project.ProjectService;
-import com.ravenrodrigo.portfolio_api.project.ProjectServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

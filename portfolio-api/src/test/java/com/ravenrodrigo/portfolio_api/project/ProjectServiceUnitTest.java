@@ -13,11 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ravenrodrigo.portfolio_api.service;
+package com.ravenrodrigo.portfolio_api.project;
 
-import com.ravenrodrigo.portfolio_api.project.ProjectEntity;
-import com.ravenrodrigo.portfolio_api.project.ProjectRepository;
-import com.ravenrodrigo.portfolio_api.project.ProjectServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +23,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
