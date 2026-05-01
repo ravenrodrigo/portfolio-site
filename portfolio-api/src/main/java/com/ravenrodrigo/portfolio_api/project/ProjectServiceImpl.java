@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A class implementation of {@link ProjectService}
@@ -44,6 +45,7 @@ public class ProjectServiceImpl implements ProjectService{
     private Project translateDbToWeb(ProjectEntity entity) {
         return new Project(entity.getId(), entity.getProjectName(), entity.getProjectDescription());
     }
+
     @Override
     public List<Project> getAllProjects() {
         // Database
@@ -57,5 +59,17 @@ public class ProjectServiceImpl implements ProjectService{
 
         // Data
         return projects;
+    }
+
+    /**
+     * Fetch a project using the project id.
+     *
+     * @param projectId
+     * @return Project
+     */
+    @Override
+    public Project getProjectById(Long projectId) {
+        Optional<ProjectEntity> optional = this.projectRepository.findById(projectId);
+        return this.translateDbToWeb(optional.get());
     }
 }

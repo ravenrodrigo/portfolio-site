@@ -27,7 +27,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * A unit test class for Project Service.
@@ -70,5 +70,24 @@ public class ProjectServiceUnitTest {
         // Assert
         assertNotNull(actualEntities);
         assertEquals(2, ((Collection<?>) actualEntities).size());
+    }
+
+    @Test
+    @DisplayName("It should return a project by id.")
+    void shouldFindProjectById() {
+        // Arrange
+        ProjectEntity projectToGet = new ProjectEntity();
+        projectToGet.setId(1L);
+        projectToGet.setProjectName("Project One");
+        projectToGet.setProjectDescription("This is the project one.");
+        projectRepositoryMock.save(projectToGet);
+
+        // When
+        when(projectRepositoryMock.findById(projectToGet.getId())).thenReturn(Optional.of(projectToGet));
+
+        // Verify
+        Project firstProject = projectServiceImplMock.getProjectById(projectToGet.getId());
+        assertEquals(1, firstProject.getProjectId());
+        verify(projectRepositoryMock, times(1)).findById(projectToGet.getId());
     }
 }
