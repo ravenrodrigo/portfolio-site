@@ -19,3 +19,4 @@ Navigate to [<u>http://localhost:8080/swagger-ui/index.html</u>](http://localhos
 | Service Name     | HTTP Method | URL       | Parameter   | Summary             |
 |------------------|:-----------:| --------- | ----------- | ---------------------
 | *Get All Projects* | `GET`       | `/api/`   | None        | Fetch all projects  |
+| *Get Project by ID | `GET` | /api/{projectId} | projectId | Fetch a project |
