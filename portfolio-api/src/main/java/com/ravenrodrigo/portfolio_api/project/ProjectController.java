@@ -17,6 +17,7 @@ package com.ravenrodrigo.portfolio_api.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,5 +41,10 @@ public class ProjectController {
     @GetMapping("/")
     public List<Project> displayAllProjects() {
         return projectService.getAllProjects();
+    }
+
+    @GetMapping("/{projectId}")
+    public Project findProjectById(@PathVariable("projectId") Long projectId) {
+        return projectService.getProjectById(projectId);
     }
 }

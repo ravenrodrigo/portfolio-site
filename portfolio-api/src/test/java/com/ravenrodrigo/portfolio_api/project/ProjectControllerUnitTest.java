@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -55,6 +56,20 @@ public class ProjectControllerUnitTest {
 
         // Then
         mockMvc.perform(get("/api/"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("It should return a project using id.")
+    void shouldGetProjectById() throws Exception {
+        // Given
+        Project firstProject = new Project(1L, "First Project", "This is first project.");
+
+        // When
+        when(projectServiceMock.getProjectById(firstProject.getProjectId())).thenReturn(firstProject);
+
+        // Then
+        mockMvc.perform(get("/api/{projectId}"))
                 .andExpect(status().isOk());
     }
 }
