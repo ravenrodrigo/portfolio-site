@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @WebMvcTest(ProjectController.class)
 @AutoConfigureMockMvc
-public class ProjectControllerUnitTest {
+public class ProjectDTOControllerUnitTest {
     @Autowired
     MockMvc mockMvc;
 
@@ -46,13 +46,13 @@ public class ProjectControllerUnitTest {
     @DisplayName("It should get all projects then return status 200.")
     void shouldGetAllProjectsThenReturnStatusIsSuccessful() throws Exception {
         // Given
-        Project firstProject = new Project(1L, "First Project", "This is first project.");
-        Project secondProject = new Project(2L, "Second Project", "This is second project");
-        Project thirdProject = new Project(3L, "Third Project", "This is third project");
-        List<Project> projects = List.of(firstProject, secondProject, thirdProject);
+        ProjectDTO firstProjectDTO = new ProjectDTO(1L, "First ProjectDTO", "This is first project.");
+        ProjectDTO secondProjectDTO = new ProjectDTO(2L, "Second ProjectDTO", "This is second project");
+        ProjectDTO thirdProjectDTO = new ProjectDTO(3L, "Third ProjectDTO", "This is third project");
+        List<ProjectDTO> projectDTOS = List.of(firstProjectDTO, secondProjectDTO, thirdProjectDTO);
 
         // When
-        when(projectServiceMock.getAllProjects()).thenReturn(projects);
+        when(projectServiceMock.getAllProjects()).thenReturn(projectDTOS);
 
         // Then
         mockMvc.perform(get("/api/"))
@@ -63,10 +63,10 @@ public class ProjectControllerUnitTest {
     @DisplayName("It should return a project using id.")
     void shouldGetProjectById() throws Exception {
         // Given
-        Project firstProject = new Project(1L, "First Project", "This is first project.");
+        ProjectDTO firstProjectDTO = new ProjectDTO(1L, "First ProjectDTO", "This is first project.");
 
         // When
-        when(projectServiceMock.getProjectById(firstProject.getProjectId())).thenReturn(firstProject);
+        when(projectServiceMock.getProjectById(firstProjectDTO.projectId())).thenReturn(firstProjectDTO);
 
         // Then
         mockMvc.perform(get("/api/{projectId}"))

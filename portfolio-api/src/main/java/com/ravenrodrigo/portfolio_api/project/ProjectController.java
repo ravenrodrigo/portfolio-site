@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * A controller class for {@link Project}
+ * A controller class for {@link ProjectDTO}
  * @author Raven Rodrigo
  */
 @RestController
@@ -39,12 +39,12 @@ public class ProjectController {
     }
 
     @GetMapping("/")
-    public List<Project> displayAllProjects() {
+    public List<ProjectDTO> displayAllProjects() {
         return projectService.getAllProjects();
     }
 
     @GetMapping("/{projectId}")
-    public Project findProjectById(@PathVariable("projectId") Long projectId) {
+    public ProjectDTO findProjectById(@PathVariable("projectId") Long projectId) {
         return projectService.getProjectById(projectId);
     }
 }

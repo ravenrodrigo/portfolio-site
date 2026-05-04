@@ -34,41 +34,41 @@ public class ProjectServiceImpl implements ProjectService{
         this.projectRepository = projectRepository;
     }
 
-    private ProjectEntity translateWebToDb(Project project){
+    private ProjectEntity translateWebToDb(ProjectDTO projectDTO){
         ProjectEntity entity = new ProjectEntity();
-        entity.setId(project.getProjectId());
-        entity.setProjectName(project.getProjectName());
-        entity.setProjectDescription(project.getProjectDescription());
+        entity.setId(projectDTO.projectId());
+        entity.setProjectName(projectDTO.projectName());
+        entity.setProjectDescription(projectDTO.projectDescription());
         return entity;
     }
 
-    private Project translateDbToWeb(ProjectEntity entity) {
-        return new Project(entity.getId(), entity.getProjectName(), entity.getProjectDescription());
+    private ProjectDTO translateDbToWeb(ProjectEntity entity) {
+        return new ProjectDTO(entity.getId(), entity.getProjectName(), entity.getProjectDescription());
     }
 
     @Override
-    public List<Project> getAllProjects() {
+    public List<ProjectDTO> getAllProjects() {
         // Database
         Iterable<ProjectEntity> projectEntities = this.projectRepository.findAll();
 
         // Web
-        List<Project> projects = new ArrayList<>();
+        List<ProjectDTO> projectDTOS = new ArrayList<>();
         projectEntities.forEach(projectEntity -> {
-            projects.add(this.translateDbToWeb(projectEntity));
+            projectDTOS.add(this.translateDbToWeb(projectEntity));
         });
 
         // Data
-        return projects;
+        return projectDTOS;
     }
 
     /**
      * Fetch a project using the project id.
      *
      * @param projectId
-     * @return Project
+     * @return ProjectDTO
      */
     @Override
-    public Project getProjectById(Long projectId) {
+    public ProjectDTO getProjectById(Long projectId) {
         Optional<ProjectEntity> optional = this.projectRepository.findById(projectId);
         return this.translateDbToWeb(optional.get());
     }

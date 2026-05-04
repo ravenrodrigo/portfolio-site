@@ -13,19 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ravenrodrigo.portfolio_api;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package com.ravenrodrigo.portfolio_api.project;
 
 /**
- * A class to bootstrap the Portfolio application.
- *
+ * A record class.
  * @author Raven Rodrigo
  */
-@SpringBootApplication
-class PortfolioSiteApplication {
-	void main(String[] args) {
-		SpringApplication.run(PortfolioSiteApplication.class, args);
-	}
-}
+public record ProjectDTO(Long projectId, String projectName, String projectDescription) {}

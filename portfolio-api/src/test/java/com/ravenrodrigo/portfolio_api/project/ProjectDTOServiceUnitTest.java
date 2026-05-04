@@ -30,13 +30,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 /**
- * A unit test class for Project Service.
+ * A unit test class for ProjectDTO Service.
  *
  * @author Raven Rodrigo
  */
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class ProjectServiceUnitTest {
+public class ProjectDTOServiceUnitTest {
 
     @InjectMocks
     ProjectServiceImpl projectServiceImplMock;
@@ -45,14 +45,14 @@ public class ProjectServiceUnitTest {
     ProjectRepository projectRepositoryMock;
 
     private final List<ProjectEntity> projects = Arrays.asList(
-            new ProjectEntity("First Project", "This is the 1st project."),
-            new ProjectEntity("Second Project", "This is the 2nd project."),
-            new ProjectEntity("Third Project", "This is the 3rd project."),
-            new ProjectEntity("Fourth Project", "This is the 4th project."),
-            new ProjectEntity("Fifth Project", "This is the 5th project."),
-            new ProjectEntity("Sixth Project", "This is the 6th project."),
-            new ProjectEntity("Seventh Project", "This is the 7th project."),
-            new ProjectEntity("Eight Project", "This is the 8th project.")
+            new ProjectEntity("First ProjectDTO", "This is the 1st project."),
+            new ProjectEntity("Second ProjectDTO", "This is the 2nd project."),
+            new ProjectEntity("Third ProjectDTO", "This is the 3rd project."),
+            new ProjectEntity("Fourth ProjectDTO", "This is the 4th project."),
+            new ProjectEntity("Fifth ProjectDTO", "This is the 5th project."),
+            new ProjectEntity("Sixth ProjectDTO", "This is the 6th project."),
+            new ProjectEntity("Seventh ProjectDTO", "This is the 7th project."),
+            new ProjectEntity("Eight ProjectDTO", "This is the 8th project.")
     );
     
     @Test
@@ -78,7 +78,7 @@ public class ProjectServiceUnitTest {
         // Arrange
         ProjectEntity projectToGet = new ProjectEntity();
         projectToGet.setId(1L);
-        projectToGet.setProjectName("Project One");
+        projectToGet.setProjectName("ProjectDTO One");
         projectToGet.setProjectDescription("This is the project one.");
         projectRepositoryMock.save(projectToGet);
 
@@ -86,8 +86,8 @@ public class ProjectServiceUnitTest {
         when(projectRepositoryMock.findById(projectToGet.getId())).thenReturn(Optional.of(projectToGet));
 
         // Verify
-        Project firstProject = projectServiceImplMock.getProjectById(projectToGet.getId());
-        assertEquals(1, firstProject.getProjectId());
+        ProjectDTO firstProjectDTO = projectServiceImplMock.getProjectById(projectToGet.getId());
+        assertEquals(1, firstProjectDTO.getProjectId());
         verify(projectRepositoryMock, times(1)).findById(projectToGet.getId());
     }
 }

@@ -6,25 +6,25 @@ CREATE TABLE IF NOT EXISTS
 );
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project One', 'This is the 1st project.');
+VALUES ('ProjectDTO One', 'This is the 1st projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Two', 'This is the 2nd project.');
+VALUES ('ProjectDTO Two', 'This is the 2nd projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Three', 'This is the 3rd project.');
+VALUES ('ProjectDTO Three', 'This is the 3rd projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Four', 'This is the 4th project.');
+VALUES ('ProjectDTO Four', 'This is the 4th projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Five', 'This is the 5th project.');
+VALUES ('ProjectDTO Five', 'This is the 5th projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Six', 'This is the 6th project.');
+VALUES ('ProjectDTO Six', 'This is the 6th projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Seven', 'This is the 7th project.');
+VALUES ('ProjectDTO Seven', 'This is the 7th projectDTO.');
 
 INSERT INTO tbl_projects (project_name, project_description)
-VALUES ('Project Eight', 'This is the 8th project.');
+VALUES ('ProjectDTO Eight', 'This is the 8th projectDTO.');

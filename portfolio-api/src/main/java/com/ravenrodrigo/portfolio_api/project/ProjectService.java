@@ -20,12 +20,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * A project interface for {@link Project}
+ * A project interface for {@link ProjectDTO}
  *
  * @author Raven Rodrigo
  */
 @Service
 public interface ProjectService {
-    List<Project> getAllProjects();
-    Project getProjectById(Long projectId);
+    List<ProjectDTO> getAllProjects();
+    ProjectDTO getProjectById(Long projectId);
 }
